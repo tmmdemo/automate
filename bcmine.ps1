@@ -14,7 +14,7 @@ $form = new-object Windows.Forms.Form
 $form.Text = "Image Viewer"
 #$form.WindowState= "Maximized"
 $form.controlbox = $false
-$form.formborderstyle = "0"
+#$form.formborderstyle = "0"
 $form.BackColor = [System.Drawing.Color]::black
 
 
