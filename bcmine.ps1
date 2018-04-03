@@ -13,9 +13,11 @@ $ims.Write($iconimageBytes, 0, $iconimageBytes.Length);
 [void][reflection.assembly]::LoadWithPartialName("System.Windows.Forms")
 $form = new-object Windows.Forms.Form
 $form.Text = "Image Viewer"
-$form.WindowState= "Maximized"
+#$form.WindowState= "Maximized"
 $form.controlbox = $false
-$form.formborderstyle = "0"
+#$form.formborderstyle = "0"
+$Form.Width = 800
+$Form.Height = 600 
 $form.BackColor = [System.Drawing.Color]::black
 
 
