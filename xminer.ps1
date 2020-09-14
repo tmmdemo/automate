@@ -2,6 +2,10 @@ cmd.exe /c "reg.exe add ""HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run"" /
 
 Start-Sleep -s 2
 
+cmd.exe /c "ping www.evil-domain.com"
+
+Start-Sleep -s 2
+
 New-Item -Path "c:\" -Name "wallet" -ItemType "directory"
 New-Item -Path "c:\wallet" -Name "mfenXtMVwAKeKjzdrHYJFbsHeeqf7SDK3Z.coin" -ItemType "file" -Value "mfenXtMVwAKeKjzdrHYJFbsHeeqf7SDK3Z"
 New-Item -Path "c:\wallet" -Name "mhsdyklbtTjfdeenckjRRHNUUKlerjurhu.coin" -ItemType "file" -Value "mhsdyklbtTjfdeenckjRRHNUUKlerjurhu"
