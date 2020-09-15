@@ -44,7 +44,7 @@ $password = 'Mining4Ever!'
 
 $securePassword = ConvertTo-SecureString $password -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential $username, $securePassword
-Start-Process -FilePath $DEST -WorkingDirectory "c:\wallet" -ArgumentList "-l -p 5150 -d"
+Start-Process -FilePath $DEST -WorkingDirectory "c:\wallet" -Credential ($credential)
 #& $DEST
 Stop-Transcript;
 
