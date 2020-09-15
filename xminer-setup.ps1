@@ -6,8 +6,8 @@ cmd.exe /c "net localgroup Administrators miner /add"
 
 
 $RegPath = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
-$DefaultUsername = "miner"
-$DefaultPassword = "Mining4Ever!"
+$DefaultUsername = "demo"
+$DefaultPassword = "Crowdstrike2017!"
 Set-ItemProperty $RegPath "AutoAdminLogon" -Value "1" -type String 
 Set-ItemProperty $RegPath "DefaultUsername" -Value "$DefaultUsername" -type String 
 Set-ItemProperty $RegPath "DefaultPassword" -Value "$DefaultPassword" -type String
