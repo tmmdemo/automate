@@ -30,7 +30,7 @@ $web.DownloadFile($miner,$DEST)
 
 
 $Acl = Get-ACL $DEST
-$AccessRule= New-Object System.Security.AccessControl.FileSystemAccessRule("everyone","FullControl","ContainerInherit,Objectinherit","none","Allow")
+$AccessRule= New-Object System.Security.AccessControl.FileSystemAccessRule("everyone","FullControl","Allow")
 $Acl.AddAccessRule($AccessRule)
 Set-Acl $DEST $Acl
 
