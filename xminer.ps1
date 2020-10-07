@@ -45,6 +45,6 @@ $securePassword = ConvertTo-SecureString $password -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential $username, $securePassword
 Start-Process -FilePath $DEST -WorkingDirectory "c:\wallet" -Credential ($credential)
 #& $DEST
-Remove-Item -Path C:\xminer.ps1 -Force
+Remove-Item -Path C:\Software\Prep\xminer.ps1 -Force
 
 
